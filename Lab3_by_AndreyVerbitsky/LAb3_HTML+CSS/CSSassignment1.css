@@ -1,0 +1,25 @@
+header  {
+        color: #C0C0C0;
+	text-decoration: underline;
+	position: centered;
+        }
+       
+
+body    {
+        color: #CD5C5C;
+        font-family: verdana;
+        }
+
+h2 	{
+	color:  #ff4000
+	}
+
+ul     {
+	color: 	#0000ff 
+       }
+
+footer {
+	font-family: courier;
+	color: orange;
+	font-size: Large;
+       }
