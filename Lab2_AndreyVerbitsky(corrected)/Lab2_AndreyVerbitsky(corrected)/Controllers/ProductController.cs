@@ -24,16 +24,20 @@ namespace Lab2_by_AndreyVerbitsky.Controllers
 
         //
         // Get: Product/Details/105
-        public string Details()
+        public string Details(int id)
         {
-            return "Details displayed for Id=105";
+            string message = "Details displayed for Id = " + id;
+
+            return message;
         }
 
         //
         //Get /Product/Location?zip==44124
-        public string Location()
+        public string Location(String zip)
         {
-            return "Location is displayed for zip=44124";
+            string message = HttpUtility.HtmlEncode("Location displayed for zip = " + zip);
+
+            return message;
         }
 
     }
