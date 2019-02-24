@@ -9,6 +9,7 @@
 
 </head>
 <body>
+ <header> Welcome to XYZ Store </header>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -33,6 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
+            <p>Welcome to XYZ store</p>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
@@ -40,5 +42,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
