@@ -153,6 +153,10 @@
     <Compile Include="Migrations\201903040237452_Update1.Designer.cs">
       <DependentUpon>201903040237452_Update1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903040321368_Update2.cs" />
+    <Compile Include="Migrations\201903040321368_Update2.Designer.cs">
+      <DependentUpon>201903040321368_Update2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
@@ -234,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903040237452_Update1.resx">
       <DependentUpon>201903040237452_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903040321368_Update2.resx">
+      <DependentUpon>201903040321368_Update2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
