@@ -31,7 +31,7 @@ namespace EnrollmentApplication.Models
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
          // Address 2 must be different than Address1
-            if (Address2 == Address2)
+            if (Address2 == Address1)
             {
                 yield return (new ValidationResult("Address2 cannot be the same as Address1"));
             }
