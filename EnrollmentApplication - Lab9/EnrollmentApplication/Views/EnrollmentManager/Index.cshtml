@@ -1,0 +1,126 @@
+﻿@model IEnumerable<EnrollmentApplication.Models.Enrollment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">Student Search</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("StudentSearch", "EnrollmentManager",
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults",
+        }))
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+        <div id="searchresults"></div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Course Search</div>
+    <div class="panel-body">
+        @using (Ajax.BeginForm("CourseSearch", "EnrollmentManager",
+        new AjaxOptions
+        {
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+            OnFailure = "searchFailed1",
+            LoadingElementId = "ajax-loader",
+            UpdateTargetId = "searchresults1",
+        }))
+        {
+            <input type="text" name="q" />
+            <input type="submit" value="search" />
+            <img id="ajax-loader"
+                 src="@Url.Content("~/Content/Images/ajax-loader.gif")"
+                 style="display:none" />
+        }
+        <div id="searchresults1"></div>
+    </div>
+</div>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentImgUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Zipcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.State)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentImgUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EnrollmentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/Apps/EnrollmentApplicationScripts.js"></script>
+}

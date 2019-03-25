@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{034CA7CE-83CB-4B43-B401-1419B2787328}</ProjectGuid>
+    <ProjectGuid>{8FD416D4-26E4-4394-9EAD-A9411551851B}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MVCMusicStoreApplication</RootNamespace>
-    <AssemblyName>MVCMusicStoreApplication</AssemblyName>
+    <RootNamespace>EnrollmentApplication</RootNamespace>
+    <AssemblyName>EnrollmentApplication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -132,18 +132,39 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ArtistsController.cs" />
-    <Compile Include="Controllers\GenreController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\EnrollmentManagerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\StoreManagerController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Album.cs" />
-    <Compile Include="Models\Artist.cs" />
-    <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\MVCMusicStoreDB.cs" />
-    <Compile Include="Models\SampleData.cs" />
+    <Compile Include="Migrations\201902110313099_InitialCreate.cs" />
+    <Compile Include="Migrations\201902110313099_InitialCreate.Designer.cs">
+      <DependentUpon>201902110313099_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902180201357_addtoDatabase.cs" />
+    <Compile Include="Migrations\201902180201357_addtoDatabase.Designer.cs">
+      <DependentUpon>201902180201357_addtoDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902242149123_AddUpdatedModels.cs" />
+    <Compile Include="Migrations\201902242149123_AddUpdatedModels.Designer.cs">
+      <DependentUpon>201902242149123_AddUpdatedModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903040237452_Update1.cs" />
+    <Compile Include="Migrations\201903040237452_Update1.Designer.cs">
+      <DependentUpon>201903040237452_Update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903040321368_Update2.cs" />
+    <Compile Include="Migrations\201903040321368_Update2.Designer.cs">
+      <DependentUpon>201903040321368_Update2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Enrollment.cs" />
+    <Compile Include="Models\EnrollmentDB.cs" />
+    <Compile Include="Models\InvalidCharsAttribute.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +180,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\Apps\MusicScripts.js" />
+    <Content Include="Scripts\Apps\EnrollmentApplicationScripts.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -189,23 +210,24 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\StoreManager\Create.cshtml" />
-    <Content Include="Views\StoreManager\Delete.cshtml" />
-    <Content Include="Views\StoreManager\Details.cshtml" />
-    <Content Include="Views\StoreManager\Edit.cshtml" />
-    <Content Include="Views\StoreManager\Index.cshtml" />
-    <Content Include="Views\Genre\Create.cshtml" />
-    <Content Include="Views\Genre\Delete.cshtml" />
-    <Content Include="Views\Genre\Details.cshtml" />
-    <Content Include="Views\Genre\Edit.cshtml" />
-    <Content Include="Views\Genre\Index.cshtml" />
-    <Content Include="Views\Artists\Create.cshtml" />
-    <Content Include="Views\Artists\Delete.cshtml" />
-    <Content Include="Views\Artists\Details.cshtml" />
-    <Content Include="Views\Artists\Edit.cshtml" />
-    <Content Include="Views\Artists\Index.cshtml" />
-    <Content Include="Views\StoreManager\_ArtistSearch.cshtml" />
-    <Content Include="Views\StoreManager\_DailyDeal.cshtml" />
+    <Content Include="Views\EnrollmentManager\Create.cshtml" />
+    <Content Include="Views\EnrollmentManager\Delete.cshtml" />
+    <Content Include="Views\EnrollmentManager\Details.cshtml" />
+    <Content Include="Views\EnrollmentManager\Edit.cshtml" />
+    <Content Include="Views\EnrollmentManager\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Student\_StudentOfTheMonth.cshtml" />
+    <Content Include="Views\EnrollmentManager\_CourseSearch.cshtml" />
+    <Content Include="Views\EnrollmentManager\_StudentSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -223,6 +245,23 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902110313099_InitialCreate.resx">
+      <DependentUpon>201902110313099_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902180201357_addtoDatabase.resx">
+      <DependentUpon>201902180201357_addtoDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902242149123_AddUpdatedModels.resx">
+      <DependentUpon>201902242149123_AddUpdatedModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903040237452_Update1.resx">
+      <DependentUpon>201903040237452_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903040321368_Update2.resx">
+      <DependentUpon>201903040321368_Update2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -239,9 +278,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50950</DevelopmentServerPort>
+          <DevelopmentServerPort>49923</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50950/</IISUrl>
+          <IISUrl>http://localhost:49923/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
